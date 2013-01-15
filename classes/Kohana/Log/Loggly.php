@@ -57,6 +57,7 @@ class Kohana_Log_Loggly extends Log_Writer
 					CURLOPT_TIMEOUT => self::LOG_REQUEST_TIMEOUT
 				]
 			)
+				->method(HTTP_Request::POST)
 				->headers('Content-Type', 'application/json')
 				->body($this->format_message($message))
 				->execute();
