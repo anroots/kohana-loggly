@@ -19,7 +19,7 @@ git clone git://github.com/anroots/kohana-loggly.git modules/loggly
 	"require": {
 		"php": ">=5.4.0",
 		"composer/installers": "*",
-		"anroots/kohana-loggly":"1.*"
+		"anroots/loggly":"1.*"
 	}
 }
 ```

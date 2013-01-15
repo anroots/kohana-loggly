@@ -1,5 +1,5 @@
 {
-	"name"       :"anroots/kohana-loggly",
+	"name"       :"anroots/loggly",
 	"type"       :"kohana-module",
 	"description":"A Kohana log writer for Loggly.com",
 	"keywords"   :["kohana", "log", "logging", "log writer", "loggly"],
