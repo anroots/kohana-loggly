@@ -36,7 +36,7 @@ Kohana::modules(array(
 
 The input should be a JSON-enable HTTPS input.
 
-![New Loggly Input](https://github.com/anroots/kohana-loggly/raw/loggly-new-input.png)!
+![New Loggly Input](https://raw.github.com/anroots/kohana-loggly/master/loggly-new-input.png)
 
 ### Add the log writer after module activation
 
@@ -60,7 +60,7 @@ Kohana::$log->add(Log::EMERGENCY,'The world will end on :time.',[':time'=>time()
 
 ### Results appear in the Loggly console
 
-![Loggly Console](https://github.com/anroots/kohana-loggly/raw/loggly-shell.png)!
+![Loggly Console](https://raw.github.com/anroots/kohana-loggly/master/loggly-shell.png)
 
 # Licence
 
