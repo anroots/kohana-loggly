@@ -5,14 +5,12 @@ Write Kohana logs to [Loggly](http://loggly.com). Log messages are sent to Loggl
 
 ## Installation
 
-### Place the files in your modules directory.
-
-#### As a Git submodule:
+### As a Git submodule:
 
 ```bash
 git clone git://github.com/anroots/kohana-loggly.git modules/loggly
 ```
-#### As a [Composer dependency](http://getcomposer.org)
+### As a [Composer dependency](http://getcomposer.org)
 
 ```javascript
 {
@@ -30,9 +28,15 @@ git clone git://github.com/anroots/kohana-loggly.git modules/loggly
 <?php
 Kohana::modules(array(
 	...
-	'loggly' => MODPATH.'loggly',
+	'loggly' => MODPATH.'kohana-loggly',
 ));
 ```
+
+### Create a new Loggly input
+
+The input should be a JSON-enable HTTPS input.
+
+![New Loggly Input](https://github.com/anroots/kohana-loggly/raw/loggly-new-input.png)!
 
 ### Add the log writer after module activation
 
@@ -41,7 +45,11 @@ Kohana::modules(array(
 Kohana::$log->attach(new Log_Loggly('my-input-key'));
 ```
 
-You can use the  `$levels` and `$min_level` params of `$log->attach` to set restraints on when to log to Loggly.
+You can use the  `$levels` and `$min_level` params of `$log->attach` to set restraints on when to log to Loggly:
+
+```php
+Kohana::$log->attach(new Log_Loggly('my-input-key'), Log::INFO); // Log only messages starting from level INFO (no DEBUG)
+```
 
 ### Log some data in your code
 
@@ -49,6 +57,10 @@ You can use the  `$levels` and `$min_level` params of `$log->attach` to set rest
 <?php
 Kohana::$log->add(Log::EMERGENCY,'The world will end on :time.',[':time'=>time()+60]);
 ```
+
+### Results appear in the Loggly console
+
+![Loggly Console](https://github.com/anroots/kohana-loggly/raw/loggly-shell.png)!
 
 # Licence
 
