@@ -12,7 +12,14 @@
 class Kohana_Log_Loggly extends Log_Writer
 {
 
+	/**
+	 * Assume all Loggly input keys are exactly 36 char
+	 */
 	const LOGGLY_KEY_LENGTH = 36;
+
+	/**
+	 * Loggly API URL
+	 */
 	const LOGGLY_INPUT_URL = 'https://logs.loggly.com/inputs/';
 
 	/**
@@ -64,8 +71,26 @@ class Kohana_Log_Loggly extends Log_Writer
 		}
 	}
 
+	/**
+	 * Formats a log entry.
+	 *
+	 * @param array $message
+	 * @param string $format
+	 * @return string
+	 */
 	public function format_message(array $message, $format = "time --- level: body in file:line")
 	{
+		// Don't include trace by default
+		if (! isset($message['additional']['exception']) && array_key_exists('trace', $message))
+		{
+			unset($message['trace']);
+		}
+
+		if (empty($message['additional']))
+		{
+			unset($message['additional']);
+		}
+
 		return json_encode($message);
 	}
 }
