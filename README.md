@@ -14,7 +14,7 @@ git submodule add git://github.com/anroots/kohana-loggly.git modules/loggly
 ```javascript
 {
 	"require": {
-		"anroots/loggly":"1.*"
+		"anroots/kohana-loggly":"1.*"
 	}
 }
 ```
